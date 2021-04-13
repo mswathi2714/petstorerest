@@ -1,5 +1,7 @@
 package com.bestbuy.subscriptions.petstore.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,8 +19,9 @@ import com.bestbuy.subscriptions.petstore.service.IPetPagebleService;
 @RequestMapping("/pageapi")
 public class PetPagebleController {
 
-	@Autowired 
+	Logger logger = LoggerFactory.getLogger(PetPagebleController.class);
 	
+	@Autowired 
 	IPetPagebleService petPagebleService;
 	
 	/**
@@ -31,6 +34,7 @@ public class PetPagebleController {
 	public ResponseEntity<PetPageableResponseModel>findAll(
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "100") int size) {
+		logger.info("Added logging capability..");
 		Pageable pageable = PageRequest.of(page, size);
 		
 		PetPageableResponseModel model = petPagebleService.findAll(pageable);
@@ -42,6 +46,13 @@ public class PetPagebleController {
 		return new ResponseEntity<>(model, HttpStatus.OK);
 	}
 	
+	/**
+	 * This returns pets by name provided
+	 * @param name
+	 * @param page
+	 * @param size
+	 * @return PetPageableResponseModel
+	 */
 	@GetMapping("/petsByName")
 	public ResponseEntity<PetPageableResponseModel> findByName(
 			@RequestParam(defaultValue = "Max") String name,
