@@ -1,0 +1,38 @@
+select * from  pet ;
+select * from pet_category;
+select * from pet where category_id in (1,2);
+
+DROP TABLE IF EXISTS pet;
+DROP TABLE IF EXISTS pet_category;
+
+
+
+  
+CREATE TABLE pet_category (
+  category_id INT AUTO_INCREMENT  PRIMARY KEY,
+  category_name VARCHAR(250) NOT NULL,
+  description VARCHAR(250) NOT NULL
+);
+
+INSERT INTO pet_category (category_name, description) VALUES
+  ('Bulldog', 'Bulldogs are recognized as excellent family pets because of their tendency to form strong bonds with children'),
+  ('Poodle', 'Poodles are among the smartest dog breeds. Their intelligence and eagerness to please make them great service dogs'),
+  ('German Shepherd', 'A true dog lovers pet, the German Shepherd Dog is intelligent and hardworking'),
+  ('Bengal cat', 'The Bengal cat is a domesticated cat breed created from hybrids of domestic cats, especially the spotted Egyptian Mau,with the Asian leopard cat'),
+  ('Maine Coon','The Maine Coon is a large domesticated cat breed. It has a distinctive physical appearance and valuable hunting skills.');
+
+CREATE TABLE pet (
+  pet_id INT AUTO_INCREMENT  PRIMARY KEY,
+  name VARCHAR(250) NOT NULL,
+  type VARCHAR(250) NOT NULL,
+  price INT DEFAULT NULL,
+  category_id INT,
+  foreign key (category_id) references pet_category(category_id)
+);
+
+
+INSERT INTO pet (name, type, price, category_id) VALUES
+  ('Max', 'dog', 50,1),
+  ('Rooster', 'dog', 45,2),
+  ('Daisy', 'dog', 55,1),
+  ('Gidget', 'cat', 35,5);
