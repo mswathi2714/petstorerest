@@ -1,9 +1,10 @@
-This is a springboot Rest API pet store application   
+This is a Springboot Rest API pet store application   
 Technologies used: Springboot, JPA, H2 in memory database  
 
 # petstorerest   
 petstore rest api   
 
-Run Instructions:   
-Build Project: Maven: mvn clean package  
+# Instructions to run it in Local:     
+Build Project Maven: mvn clean package  
+  
 Run app using Maven: mvn spring-boot:run  
