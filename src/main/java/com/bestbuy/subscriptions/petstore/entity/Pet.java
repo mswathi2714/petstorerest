@@ -17,7 +17,7 @@ public class Pet {
 	private String type;
 	
 	@Column(name = "price")
-	private String price;
+	private double price;
 
 //	@Column(name = "category_id")
 //	private int category_id;
@@ -27,7 +27,7 @@ public class Pet {
 	}
 	
 	
-	public Pet(int pet_id, String name, String type, String price) {
+	public Pet(int pet_id, String name, String type, double price) {
 		super();
 		this.pet_id = pet_id;
 		this.name = name;
@@ -61,11 +61,11 @@ public class Pet {
 		this.type = type;
 	}
 
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
