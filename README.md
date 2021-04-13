@@ -5,5 +5,5 @@ Technologies used: Springboot, JPA, H2 in memory database
 petstore rest api
 
 Run Instructions:
-Build Project: Maven: mvn clean package
+Build Project: Maven: mvn clean package\n
 Run app using Maven: mvn spring-boot:run
