@@ -9,6 +9,10 @@ import com.bestbuy.subscriptions.petstore.entity.Pet;
 import com.bestbuy.subscriptions.petstore.model.PetPageableResponseModel;
 import com.bestbuy.subscriptions.petstore.repository.PetPagebleRepository;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 @Service
 public class PetPagebleService implements IPetPagebleService {
 
@@ -33,6 +37,11 @@ public class PetPagebleService implements IPetPagebleService {
 		response.setPets(pagePets.getContent());
 		response.setTotalItems(pagePets.getSize());
 		return response;
+	}
+
+	public void test() {
+		List<PetPageableResponseModel> petPageableResponseModel = new ArrayList<>();
+		petPageableResponseModel.sort(Comparator.comparing(PetPageableResponseModel::getTotalItems).reversed().thenComparing(PetPageableResponseModel::getCount));
 	}
 
 }

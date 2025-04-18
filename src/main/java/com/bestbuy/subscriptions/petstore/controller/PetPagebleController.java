@@ -58,6 +58,4 @@ public class PetPagebleController {
 		}
 		
 		return new ResponseEntity<>(model, HttpStatus.OK);	}
-	
-	
 }
